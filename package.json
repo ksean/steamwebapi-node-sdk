@@ -1,0 +1,37 @@
+{
+    "name": "SteamWebAPI",
+    "version": "0.0.1",
+    "description": "Steam Web API Node SDK",
+    "main": "SteamWebAPI.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "xmlhttprequest": "~1.6.0"
+    },
+    "devDependencies": {
+        "xmlhttprequest": "~1.6.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ksean/SteamWebAPINodeSDK.git"
+    },
+    "keywords": [
+        "steam",
+        "api",
+        "node",
+        "sdk",
+        "web",
+        "nodejs"
+    ],
+    "author": "Sean Kennedy <kennedymsean+npm@gmail.com> (http://kennedysean.com)",
+    "licenses": [
+        {
+            "type": "GPL-3.0",
+            "url": "https://github.com/ksean/SteamWebAPINodeSDK/blob/master/LICENSE-GPL-3.0"
+        }
+    ],
+    "bugs": {
+        "url": "https://github.com/ksean/SteamWebAPINodeSDK/issues"
+    }
+}
