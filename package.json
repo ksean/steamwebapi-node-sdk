@@ -1,5 +1,5 @@
 {
-    "name": "SteamWebAPI",
+    "name": "steamwebapi",
     "version": "0.0.1",
     "description": "Steam Web API Node SDK",
     "main": "SteamWebAPI.js",

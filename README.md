@@ -6,10 +6,10 @@ SDK for interfacing with Steam's Web API using Node
 ## Installation
 
 1. Run the following command:
-+ npm install SteamWebAPI
++ npm install steamwebapi
 
 2. Include the SDK in your module by adding the require code
-+ `var SteamWebAPI = require('SteamWebAPI').SteamWebAPI;`
++ `var SteamWebAPI = require('steamwebapi').SteamWebAPI;`
 
 3. Set your API Key (Optional, but required for specific API requests)
 + `SteamWebAPI.setAPIKey('***My Steam API Key***');`
@@ -17,9 +17,9 @@ SDK for interfacing with Steam's Web API using Node
 ## Example
 
 Example for retrieving a list of the 5 most recently played games for a given Steam 64 bit ID, and logging the response in console
-`SteamWebAPI.getRecentlyPlayedGames('*** 64 Bit Steam ID ***', 5, function(response) {
+```SteamWebAPI.getRecentlyPlayedGames('*** 64 Bit Steam ID ***', 5, function(response) {
     console.log(response);
-});`
+});```
 
 ## Tests
 
