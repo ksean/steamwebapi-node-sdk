@@ -23,9 +23,11 @@ SteamWebAPI.setAPIKey('***My Steam API Key***');
 ## Example
 
 Example for retrieving a list of the 5 most recently played games for a given Steam 64 bit ID, and logging the response in console
-```SteamWebAPI.getRecentlyPlayedGames('*** 64 Bit Steam ID ***', 5, function(response) {
+```javascript
+SteamWebAPI.getRecentlyPlayedGames('*** 64 Bit Steam ID ***', 5, function(response) {
     console.log(response);
-});```
+});
+```
 
 ## Tests
 
