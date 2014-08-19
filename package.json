@@ -1,15 +1,16 @@
 {
     "name": "steamwebapi",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Steam Web API Node SDK",
     "main": "SteamWebAPI.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "make test"
     },
     "dependencies": {
         "xmlhttprequest": "~1.6.0"
     },
     "devDependencies": {
+        "mocha": "~1.21.4",
         "xmlhttprequest": "~1.6.0"
     },
     "repository": {
@@ -22,7 +23,8 @@
         "node",
         "sdk",
         "web",
-        "nodejs"
+        "nodejs",
+        "steamwebapi"
     ],
     "author": "Sean Kennedy <kennedymsean+npm@gmail.com> (http://kennedysean.com)",
     "licenses": [

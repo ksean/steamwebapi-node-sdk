@@ -137,7 +137,7 @@ const STEAM_ENDPOINTS = {
 
 // Error messages
 const API_KEY_NOT_SET = 'API key is not set';
-const PARAMETERS_MISSING = 'Missing parameters parameter(s)';
+const PARAMETERS_MISSING = 'Missing parameter(s)';
 const PARAMETERS_INVALID_VALUE = 'Required parameters are present but invalid';
 const PARAMETERS_INVALID_FORMAT = 'Parameters were not provided as an object';
 const METHOD_NOT_EXIST = 'That API method does not exist';
@@ -429,14 +429,14 @@ module.exports.SteamWebAPI = {
      *
      * @param appid                         AppID of the game you want the news of
      * @param count                         How many news enties you want to get returned
-     * @param maxlength                     Maximum length of each news entry
+     * @param maxLength                     Maximum length of each news entry
      * @param callback                      Function to handle the response
      */
-    getNewsForApp: function(appid, count, maxlength, callback) {
+    getNewsForApp: function(appid, count, maxLength, callback) {
         this.send('GetNewsForApp', {
             'appid': appid,
             'count': count,
-            'maxlength': maxlength
+            'maxLength': maxLength
         }, callback);
     },
 
