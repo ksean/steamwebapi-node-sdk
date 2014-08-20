@@ -26,7 +26,7 @@
                                           Includes & variable declaration
  **********************************************************************************************************************/
 // Required modules
-var XMLHttpRequest = require('XMLHttpRequest').XMLHttpRequest;
+var XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
 // Default response formats
 const VALID_RESPONSE_FORMATS = ['json', 'xml', 'vdf'];
