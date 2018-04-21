@@ -5,6 +5,10 @@ Steam Web API Node.js SDK
 
 Node.js SDK for interfacing with Steam's Web API.
 
+## Requirements
+
+Node.js >= 6.0
+
 ## Installation
 
 Run the following command:  
