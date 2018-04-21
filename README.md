@@ -1,43 +1,83 @@
-Steam Web API Node SDK
+Steam Web API Node.js SDK
 =========
 
-SDK for interfacing with Steam's Web API using Node
+![Travis CI](https://travis-ci.org/ksean/steamwebapi-node-sdk.svg?branch=master)
+
+Node.js SDK for interfacing with Steam's Web API.
 
 ## Installation
 
-+ Run the following command:  
+Run the following command:  
 ```javascript
 npm install steamwebapi
 ```
 
-+ Include the SDK in your module by adding the require code  
+## Usage
+
+Require the SDK in your module by adding the following code  
 ```javascript
-var SteamWebAPI = require('steamwebapi').SteamWebAPI;
+var SteamWebAPI = require('steamwebapi');
 ```
 
-+ Set your API Key (Optional, but required for specific API requests)
+Set your API Key _(Optional, but required for most API requests)_
 ```javascript
 SteamWebAPI.setAPIKey('***My Steam API Key***');
 ```
 
+Set your response format (Default `json`)
+```javascript
+SteamWebAPI.setFormat('xml');
+```
+
 ## Example
 
-Example for retrieving a list of the 5 most recently played games for a given Steam 64 bit ID, and logging the response in console
+Example for retrieving a list of the 5 most recently played games for a given Steam 64 bit ID, and logging the response in console:
 ```javascript
-SteamWebAPI.getRecentlyPlayedGames('*** 64 Bit Steam ID ***', 5, function(response) {
+SteamWebAPI.getRecentlyPlayedGames('76561198020275445', 5, function(response) {
     console.log(response);
 });
 ```
 
-## Tests
+Handling any errors in your request:
+```javascript
+SteamWebAPI.getRecentlyPlayedGames('76561198020275445', 5, function(response) {
+    if (typeof response.error !== 'undefined') {
+        console.log(response.error)
+    }
+    ...
+});
+```
 
-* Added Travis compatibility
-* Manually run tests using npm test
+
+## Testing
+
+`npm test`
 
 ## Documentation
 
 The official Steam documentation is found at: [https://developer.valvesoftware.com/wiki/Steam_Web_API](https://developer.valvesoftware.com/wiki/Steam_Web_API)
 
-## Release History
+SDK Documentation:
 
-* 0.0.1 Initial release
+`out/module-SteamWebAPI.html`
+
+### Supported Enpoints:
+
++ `getFriendList`
++ `getGlobalAchievementPercentagesForApp`
++ `getGlobalStatsForGame`
++ `getNewsForApp`
++ `getOwnedGames`
++ `getPlayerAchievements`
++ `getPlayerSummaries`
++ `getRecentlyPlayedGames`
++ `getUserStatsForGame`
++ `isPlayingSharedGame`
+
+
+## License
+[The Unlicense](http://unlicense.org/)
+
+## Latest version
+
+`0.0.3`

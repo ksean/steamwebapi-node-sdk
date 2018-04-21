@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: SteamWebAPI.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: SteamWebAPI.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * Steam Web API Node SDK
  *
  * SDK for interfacing with Steam's Web API using Node
@@ -15,7 +43,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see &lt;http://www.gnu.org/licenses/>.
  *
  * @author Kennedy Software Solutions Inc.
  * @version 0.0.3
@@ -23,7 +51,7 @@
 
 
 /**********************************************************************************************************************
-                                          Includes & letiable declaration
+                                          Includes &amp; letiable declaration
  **********************************************************************************************************************/
 // Required modules
 let XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
@@ -69,7 +97,7 @@ function parametersValid(parameters) {
                 case 'appid_playing':
                 case 'gameid':
 
-                    if (!util.isNumber(value) || value < 0) {
+                    if (!util.isNumber(value) || value &lt; 0) {
 
                         return false;
                     }
@@ -122,7 +150,7 @@ function parametersValid(parameters) {
 
                 case 'relationship':
 
-                    if (config.VALID_RELATIONSHIPS.indexOf(value) < 0) {
+                    if (config.VALID_RELATIONSHIPS.indexOf(value) &lt; 0) {
 
                         return false;
                     }
@@ -140,7 +168,7 @@ function parametersValid(parameters) {
                         // Filter prototype properties
                         if (value.hasOwnProperty(appid)) {
 
-                            if (!util.isNumber(appid) || appid < 0) {
+                            if (!util.isNumber(appid) || appid &lt; 0) {
 
                                 return false;
                             }
@@ -196,7 +224,7 @@ module.exports = {
      */
     setAPIKey: function(newAPIKey) {
         // Verify the inputted api key is valid
-        let isValidAPIKey = (typeof newAPIKey === 'string' && newAPIKey.length === 32);
+        let isValidAPIKey = (typeof newAPIKey === 'string' &amp;&amp; newAPIKey.length === 32);
 
         // If it's valid then set it as the API Key
         if (isValidAPIKey) {
@@ -246,7 +274,7 @@ module.exports = {
                 return;
             }
 
-            urlParameters += 'key=' + apiKey + '&';
+            urlParameters += 'key=' + apiKey + '&amp;';
         }
 
         // Call this validation before checking if meeting requirements for special case handling
@@ -265,7 +293,7 @@ module.exports = {
                 if (parameters.hasOwnProperty(requiredParameter)) {
 
                     requestSpecification[requiredParameter] = parameters[requiredParameter];
-                    urlParameters += requiredParameter + '=' + parameters[requiredParameter] + '&';
+                    urlParameters += requiredParameter + '=' + parameters[requiredParameter] + '&amp;';
                 } else {
 
                     // Check if this missing parameter is required
@@ -278,7 +306,7 @@ module.exports = {
             }
         }
 
-        // Remove trailing & from url parameters string
+        // Remove trailing &amp; from url parameters string
         urlParameters = urlParameters.substring(0, urlParameters.length - 1);
 
         // Set request details
@@ -289,7 +317,7 @@ module.exports = {
         request.onreadystatechange = function () {
 
             // Ignore incomplete requests
-            if (!(request.readyState === 4 && request.status === 200)) {
+            if (!(request.readyState === 4 &amp;&amp; request.status === 200)) {
 
                 return;
             }
@@ -456,7 +484,7 @@ module.exports = {
         if (util.isDefined(include_appinfo)) {
             parameters.include_appinfo = include_appinfo;
         }
-        if (util.isDefined(include_played_free_games) && util.isDefined(include_played_free_games.length) && include_played_free_games.length > 0) {
+        if (util.isDefined(include_played_free_games) &amp;&amp; util.isDefined(include_played_free_games.length) &amp;&amp; include_played_free_games.length > 0) {
             parameters.include_played_free_games = include_played_free_games;
         }
         if (util.isDefined(appids_filter)) {
@@ -506,4 +534,26 @@ module.exports = {
             'appid_playing': appid_playing
         }, callback);
     }
-};
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-SteamWebAPI.html">SteamWebAPI</a></li></ul><h3>Global</h3><ul><li><a href="global.html#parametersValid">parametersValid</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Apr 21 2018 14:14:56 GMT-0400 (EDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

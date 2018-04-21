@@ -1,0 +1,4 @@
+# IDE Specific
+.idea/
+
+node_modules/

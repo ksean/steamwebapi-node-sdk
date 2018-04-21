@@ -1,5 +1,5 @@
 var assert = require('assert');
-var SteamWebAPI = require('../SteamWebAPI').SteamWebAPI;
+var SteamWebAPI = require('../SteamWebAPI');
 
 const STEAM_ID = '76561198020275445'; // TimmyCZ
 const APP_ID = '440'; // Team Fortress 2
@@ -9,7 +9,6 @@ const ACHIEVEMENT_NAME = ['tf_pyro_burn_spy_taunt'];
 
 suite('Array', function(){
     setup(function(){
-//        SteamWebAPI.setAPIKey('');
     });
 
     suite('getNewsForApp', function(){
