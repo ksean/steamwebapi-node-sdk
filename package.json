@@ -1,6 +1,6 @@
 {
     "name": "steamwebapi",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Steam Web API Node.js SDK",
     "homepage": "https://github.com/ksean/steamwebapi-node-sdk",
     "main": "SteamWebAPI.js",
@@ -16,7 +16,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/ksean/SteamWebAPINodeSDK.git"
+        "url": "https://github.com/ksean/steamwebapi-node-sdk.git"
     },
     "keywords": [
         "steam",

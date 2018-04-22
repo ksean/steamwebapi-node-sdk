@@ -1,24 +1,35 @@
 /**
- * Steam Web API Node SDK
+ * steamwebapi
  *
- * SDK for interfacing with Steam's Web API using Node
- * Copyright (C) 2018 Kennedy Software Solutions Inc.
+ * Unofficial Steam Node.js SDK for interfacing with Steam's Web API
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ * This is free and unencumbered software released into the public domain.
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ * Anyone is free to copy, modify, publish, use, compile, sell, or
+ * distribute this software, either in source code form or as a compiled
+ * binary, for any purpose, commercial or non-commercial, and by any
+ * means.
  *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * In jurisdictions that recognize copyright laws, the author or authors
+ * of this software dedicate any and all copyright interest in the
+ * software to the public domain. We make this dedication for the benefit
+ * of the public at large and to the detriment of our heirs and
+ * successors. We intend this dedication to be an overt act of
+ * relinquishment in perpetuity of all present and future rights to this
+ * software under copyright law.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ * IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ *
+ * For more information, please refer to <http://unlicense.org/>
  *
  * @author Kennedy Software Solutions Inc.
- * @version 0.0.3
+ * @version 0.0.4
  */
 
 
@@ -42,8 +53,8 @@ let apiKey;
  *
  * Does light validation on the provided set of parameters to an API request
  *
- * @param parameters                        The object containing the parameters for the request
- * @returns {boolean}                       True if all parameters are valid, else false
+ * @param parameters    {object}    The object containing the parameters for the request
+ * @returns             {boolean}   True if all parameters are valid, else false
  */
 function parametersValid(parameters) {
 
@@ -176,7 +187,7 @@ module.exports = {
      *
      * Sets the default response format for responses from the Steam Web API
      *
-     * @param newFormat         The new preferred response format
+     * @param newFormat {string}    The new preferred response format
      */
     setFormat: function(newFormat) {
 
@@ -191,8 +202,8 @@ module.exports = {
      *
      * Sets the API key that will be used to validate the API requests
      *
-     * @param newAPIKey                     The new API key to use
-     * @returns {boolean}                   If this function successfully set the provided API key
+     * @param newAPIKey {string}    The new API key to use
+     * @returns         {boolean}   If this function successfully set the provided API key
      */
     setAPIKey: function(newAPIKey) {
         // Verify the inputted api key is valid
@@ -211,9 +222,9 @@ module.exports = {
      *
      * Send the specified request to the Steam Web API and execute the callback upon success or failure
      *
-     * @param method                        The method name on the Steam Web API
-     * @param parameters                    An object containing all the required parameters for the API request
-     * @param callback                      The function to call upon success or failure
+     * @param method        {string}    The method name on the Steam Web API
+     * @param parameters    {object}    An object containing all the required parameters for the API request
+     * @param callback      {function}  The function to call upon success or failure
      */
     send: function(method, parameters, callback) {
         // Use XMLHttpRequest for sending requests to the API
@@ -327,10 +338,10 @@ module.exports = {
      *
      * GetNewsForApp returns the latest of a game specified by its appID
      *
-     * @param appid                         AppID of the game you want the news of
-     * @param count                         How many news enties you want to get returned
-     * @param maxLength                     Maximum length of each news entry
-     * @param callback                      Function to handle the response
+     * @param appid     {int}       AppID of the game you want the news of
+     * @param count     {int}       How many news enties you want to get returned
+     * @param maxLength {int}       Maximum length of each news entry
+     * @param callback  {function}  Function to handle the response
      */
     getNewsForApp: function(appid, count, maxLength, callback) {
         this.send('GetNewsForApp', {
@@ -345,8 +356,8 @@ module.exports = {
      *
      * Returns on global achievements overview of a specific game in percentages
      *
-     * @param gameid                        AppID of the game you want the percentages of
-     * @param callback                      Function to handle the response
+     * @param gameid    {int}       AppID of the game you want the percentages of
+     * @param callback  {function}  Function to handle the response
      */
     getGlobalAchievementPercentagesForApp: function(gameid, callback) {
         this.send('GetGlobalAchievementPercentagesForApp', {
@@ -359,10 +370,10 @@ module.exports = {
      *
      * Get the global stats for the provided achievement names
      *
-     * @param gameid                        AppID of the game you want the stats of
-     * @param count                         Length of the array of global stat names you will be passing
-     * @param name                          Name of the achievement as defined in Steamworks
-     * @param callback                      Function to handle the response
+     * @param gameid    {int}       AppID of the game you want the stats of
+     * @param count     {int}       Length of the array of global stat names you will be passing
+     * @param name      {array}     Name of the achievement as defined in Steamworks
+     * @param callback  {function}  Function to handle the response
      */
     getGlobalStatsForGame: function(gameid, count, name, callback) {
         this.send('GetGlobalStatsForGame', {
@@ -377,8 +388,9 @@ module.exports = {
      *
      * Returns basic profile information for a list of 64-bit Steam IDs
      *
-     * @param steamids                      Comma-delimited list of 64 bit Steam IDs to return profile information for. Up to 100 Steam IDs can be requested
-     * @param callback                      Function to handle the response
+     * @param steamids  {string}    Comma-delimited list of 64 bit Steam IDs to return profile information for. Up to
+     *                              100 Steam IDs can be requested
+     * @param callback  {function}  Function to handle the response
      */
     getPlayerSummaries: function(steamids, callback) {
         this.send('GetPlayerSummaries', {
@@ -391,9 +403,9 @@ module.exports = {
      *
      * Returns the friend list of any Steam user, provided his Steam Community profile visibility is set to "Public"
      *
-     * @param steamid                       64 bit Steam ID to return friend list for
-     * @param relationship                  Relationship filter. Possibles values: all, friend
-     * @param callback                      Function to handle the response
+     * @param steamid       {string}    64 bit Steam ID to return friend list for
+     * @param relationship  {string}    Relationship filter. Possibles values: all, friend
+     * @param callback      {function}  Function to handle the response
      */
     getFriendList: function(steamid, relationship, callback) {
         this.send('GetFriendList', {
@@ -407,9 +419,9 @@ module.exports = {
      *
      * Returns a list of achievements for this user by app id
      *
-     * @param steamid                       64 bit Steam ID to return friend list for
-     * @param appid                         The ID for the game you're requesting
-     * @param callback                      Function to handle the response
+     * @param steamid   {string}    64 bit Steam ID to return friend list for
+     * @param appid     {int}       The ID for the game you're requesting
+     * @param callback  {function}  Function to handle the response
      */
     getPlayerAchievements: function(steamid, appid, callback) {
         this.send('GetPlayerAchievements', {
@@ -423,9 +435,9 @@ module.exports = {
      *
      * Returns a list of achievements for this user by app id
      *
-     * @param steamid                       64 bit Steam ID to return friend list for
-     * @param appid                         The ID for the game you're requesting
-     * @param callback                      Function to handle the response
+     * @param steamid   {string}    64 bit Steam ID to return friend list for
+     * @param appid     {int}       The ID for the game you're requesting
+     * @param callback  {function}  Function to handle the response
      */
     getUserStatsForGame: function(steamid, appid, callback) {
         this.send('GetUserStatsForGame', {
@@ -441,11 +453,21 @@ module.exports = {
      * publicly visible. Private, friends-only, and other privacy settings are not supported unless you are asking for
      * your own personal details (ie the WebAPI key you are using is linked to the steamid you are requesting).
      *
-     * @param steamid                       The SteamID of the account
-     * @param include_appinfo               Include game name and logo information in the output. The default is to return appids only
-     * @param include_played_free_games     By default, free games like Team Fortress 2 are excluded (as technically everyone owns them). If include_played_free_games is set, they will be returned if the player has played them at some point. This is the same behavior as the games list on the Steam Community
-     * @param appids_filter                 You can optionally filter the list to a set of appids. Note that these cannot be passed as a URL parameter, instead you must use the JSON format described in Steam_Web_API#Calling_Service_interfaces. The expected input is an array of integers
-     * @param callback                      Function to handle the response
+     * @param steamid                       {string}    The SteamID of the account
+     * @param include_appinfo               {string}    Include game name and logo information in the output. The
+     *                                                  default is to return appids only
+     * @param include_played_free_games     {boolean}   By default, free games like Team Fortress 2 are excluded (as
+     *                                                  technically everyone owns them). If include_played_free_games is
+     *                                                  set, they will be returned if the player has played them at some
+     *                                                  point. This is the same behavior as the games list on the Steam
+     *                                                  Community
+     * @param appids_filter                 {array}     You can optionally filter the list to a set of appids. Note that
+     *                                                  these cannot be passed as a URL parameter, instead you must use
+     *                                                  the JSON format described in
+     *                                                  Steam_Web_API#Calling_Service_interfaces. The expected input is
+     *                                                  an array of integers (in JSON: "appids_filter: [ 440, 500, 550 ]
+     *                                                  " )
+     * @param callback                      {function}  Function to handle the response
      */
     getOwnedGames: function(steamid, include_appinfo, include_played_free_games, appids_filter, callback) {
         let parameters = {
@@ -473,9 +495,10 @@ module.exports = {
      * publicly visible. Private, friends-only, and other privacy settings are not supported unless you are asking for
      * your own personal details (ie the WebAPI key you are using is linked to the steamid you are requesting).
      *
-     * @param steamid                       The SteamID of the account
-     * @param count                         Optionally limit to a certain number of games (the number of games a person has played in the last 2 weeks is typically very small)
-     * @param callback                      Function to handle the response
+     * @param steamid   {string}    The SteamID of the account
+     * @param count     {int}       Optionally limit to a certain number of games (the number of games a person has
+     *                              played in the last 2 weeks is typically very small)
+     * @param callback  {function}  Function to handle the response
      */
     getRecentlyPlayedGames: function(steamid, count, callback) {
         let parameters = {
@@ -496,9 +519,9 @@ module.exports = {
      * IsPlayingSharedGame returns the original owner's SteamID if a borrowing account is currently playing this game.
      * If the game is not borrowed or the borrower currently doesn't play this game, the result is always 0.
      *
-     * @param steamid                       The SteamID of the account playing
-     * @param appid_playing                 The AppID of the game currently playing
-     * @param callback                      Function to handle the response
+     * @param steamid           {string}    The SteamID of the account playing
+     * @param appid_playing     {int}       The AppID of the game currently playing
+     * @param callback          {function}  Function to handle the response
      */
     isPlayingSharedGame: function(steamid, appid_playing, callback) {
         this.send('GetUserStatsForGame', {
